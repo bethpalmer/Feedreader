@@ -15,7 +15,7 @@ $(function() {
         });
 
         // Test that loops through each feed in allFeeds to ensures it has a URL defined and not empty
-        function test_for_url(allFeeds) {
+        function testForUrl(allFeeds) {
             it("all feeds should have urls", function() {
                 expect(allFeeds).toBeDefined();
                 expect(allFeeds).not.toBe("");
@@ -23,11 +23,11 @@ $(function() {
         }
 
         for (i = 0, len = allFeeds.length; i < len; i++) {
-            test_for_url(allFeeds[i].url);
+            testForUrl(allFeeds[i].url);
         }
 
         // Test that loops through each feed in allFeeds and ensures name is defined and not empty.
-        function test_for_name(allFeeds) {
+        function testForName(allFeeds) {
             it("all feeds should have names", function() {
                 expect(allFeeds).toBeDefined();
                 expect(allFeeds).not.toBe("");
@@ -35,7 +35,7 @@ $(function() {
         }
 
         for (i = 0; i < allFeeds.length; i++) {
-            test_for_name(allFeeds[i].name);
+            testForName(allFeeds[i].name);
         }
 
     });
@@ -80,9 +80,8 @@ $(function() {
             loadFeed(0, done);
         });
 
-        it("async loadFeed provides at least one entry", function(done) {
-            expect($("div.feed a.entry-link article.entry")).not.toBe(0);
-            done();
+        it("async loadFeed provides at least one entry", function() {
+            expect($("div.feed a.entry-link article.entry").length).not.toBe(0);
         });
 
     });
